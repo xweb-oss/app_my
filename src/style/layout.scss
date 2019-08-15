@@ -1,0 +1,56 @@
+//layout整体布局
+@import './mixin.scss';
+
+body,html,#app{
+    background:$theme;
+    @include p0;
+    @include m0;
+    @include fs14;
+    @include whp;
+    @include hhp;
+    
+}
+.iconfont,.app_layout,.app_head,.app_middle,.app_foot,div, span, h1, h2, h3, h4, h5, h6, p,  ul, ol, li, dl, dt, dd, form, input, button, textarea, select, iframe, img, a, header, footer, nav, menu, canvas{
+    font-size: 14px;
+    @include p0;
+    @include m0;
+    @include fs14;;
+  }
+// 底部
+footer{
+    @include whp;
+    height:48px;
+    @include pf;
+    bottom:0;
+    display: flex;  //定义弹性盒子
+    justify-content: space-around;
+    background:#123456;
+    div{
+        flex:1;
+        a{
+            @include dvb;
+            box-sizing:border-box;
+            font-family:"微软雅黑";
+            // flex-direction: column;   //纵向排列
+            text-align: center;  //针对块级元素
+            color:$white;
+            i{
+                font-size:20px!important;
+                }
+            span{
+                font-family: "微软雅黑";
+            }
+        }
+       .router-link-exact-active{ //在控制台查看a的class属性，实现高亮
+        color:rgb(167, 49, 7);
+       }
+    }
+}
+.head{
+    @include whp;
+    @include lh48;
+    @include tac;
+    color:$white;
+    background:$black;
+    
+}

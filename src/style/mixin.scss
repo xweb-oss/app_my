@@ -1,0 +1,298 @@
+/***Mixin Directives***/
+@mixin clearfix {
+    &:after {
+        clear: both;
+        display: table;
+        height: 0;
+        content: "";
+    }
+}
+
+@mixin scrollBar {
+     ::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+    }
+     ::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+        background-color: transparent;
+    }
+     ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: hsla(220, 4%, 58%, .3);
+    }
+}
+
+@mixin radius($width, $size, $color) {
+    width: $width;
+    height: $width;
+    line-height: $width;
+    border-radius: $width;
+    text-align: center;
+    border-width: $size;
+    border-style: solid;
+    border-color: $color;
+}
+
+@mixin relative {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+@mixin pct($pct) {
+    width: #{$pct};
+    position: relative;
+    margin: 0 auto;
+}
+
+@mixin triangle($width, $height, $color, $direction) {
+    $width: $width/2;
+    $color-border-style: $height solid $color;
+    $transparent-border-style: $width solid transparent;
+    height: 0;
+    width: 0;
+    @if $direction==up {
+        border-bottom: $color-border-style;
+        border-left: $transparent-border-style;
+        border-right: $transparent-border-style;
+    }
+    @else if $direction==right {
+        border-left: $color-border-style;
+        border-top: $transparent-border-style;
+        border-bottom: $transparent-border-style;
+    }
+    @else if $direction==down {
+        border-top: $color-border-style;
+        border-left: $transparent-border-style;
+        border-right: $transparent-border-style;
+    }
+    @else if $direction==left {
+        border-right: $color-border-style;
+        border-top: $transparent-border-style;
+        border-bottom: $transparent-border-style;
+    }
+}
+
+
+
+/**定位**/
+@mixin pr { position: relative; }
+@mixin pa { position: absolute; }
+@mixin pf { position: fixed; }
+
+/**浮动**/
+@mixin fl { float: left; display: inline; }
+@mixin fr { float: right; display: inline; }
+@mixin fn { float: none; }
+@mixin cf { clear: both; }
+
+/**盒子模型**/
+/*显示*/
+@mixin db { display: block; }
+@mixin di { display: inline; }
+@mixin dib { display: inline-block; }
+/*盒子类型*/
+@mixin bsbb { box-sizing: border-box; }
+@mixin bscb { box-sizing: content-box; }
+/*宽*/
+@mixin whp { width: 100%; }
+/*高*/
+@mixin hhp { height: 100%; }
+/*内填充*/
+@mixin p0  { padding: 0; }
+@mixin pt0 { padding-top: 0; }
+@mixin pr0 { padding-right: 0; }
+@mixin pb0 { padding-bottom: 0; }
+@mixin pl0 { padding-left: 0; }
+@mixin p5  { padding: 5px; }
+@mixin pt5 { padding-top: 5px; }
+@mixin pr5 { padding-right: 5px; }
+@mixin pb5 { padding-bottom: 5px; }
+@mixin pl5 { padding-left: 5px; }
+@mixin p8  { padding: 8px; }
+@mixin p10  { padding: 10px; }
+@mixin pt10 { padding-top: 10px; }
+@mixin pr10 { padding-right: 10px; }
+@mixin pb10 { padding-bottom: 10px; }
+@mixin pl10 { padding-left: 10px; }
+@mixin p12  { padding: 12px; }
+@mixin pt12 { padding-top: 12px; }
+@mixin pr12 { padding-right: 12px; }
+@mixin pb12 { padding-bottom: 12px; }
+@mixin pl12 { padding-left: 12px; }
+@mixin p15  { padding: 15px; }
+@mixin pt15 { padding-top: 15px; }
+@mixin pr15 { padding-right: 15px; }
+@mixin pb15 { padding-bottom: 15px; }
+@mixin pl15 { padding-left: 15px; }
+@mixin p20  { padding: 20px; }
+@mixin pt20 { padding-top: 20px; }
+@mixin pr20 { padding-right: 20px; }
+@mixin pb20 { padding-bottom: 20px; }
+@mixin pl20 { padding-left: 20px; }
+/*外边界*/
+@mixin m0  { margin: 0; }
+@mixin mt0 { margin-top: 0; }
+@mixin mr0 { margin-right: 0; }
+@mixin mb0 { margin-bottom: 0; }
+@mixin ml0 { margin-left: 0; }
+@mixin m5 { margin: 5px; }
+@mixin mt5 { margin-top: 5px; }
+@mixin mr5 { margin-right: 5px; }
+@mixin mb5 { margin-bottom: 5px; }
+@mixin ml5 { margin-left: 5px; }
+@mixin m10  { margin: 10px; }
+@mixin mt10 { margin-top: 10px; }
+@mixin mr10 { margin-right: 10px; }
+@mixin mb10 { margin-bottom: 10px; }
+@mixin ml10 { margin-left: 10px; }
+@mixin m15  { margin: 15px; }
+@mixin mt15 { margin-top: 15px; }
+@mixin mr15 { margin-right: 15px; }
+@mixin mb15 { margin-bottom: 15px; }
+@mixin ml15 { margin-left: 15px; }
+@mixin m20  { margin: 20px; }
+@mixin mt20 { margin-top: 20px; }
+@mixin mr20 { margin-right: 20px; }
+@mixin mb20 { margin-bottom: 20px; }
+@mixin ml20 { margin-left: 20px; }
+/*边框*/
+@mixin bn { border: none; }
+@mixin bsg { border: 1px solid $grayB; }
+@mixin btsg { border-top: 1px solid $grayB; }
+@mixin brsg { border-right: 1px solid $grayB; }
+@mixin bbsg { border-bottom: 1px solid $grayB; }
+@mixin blsg { border-left: 1px solid $grayB; }
+/*圆角*/
+@mixin br0 { border-radius: 0; }
+@mixin br2 { border-radius: 2px; }
+@mixin br4 { border-radius: 4px; }
+@mixin btlr4 { border-top-left-radius: 4px; }
+@mixin btrr4 { border-top-right-radius: 4px; }
+@mixin bblr4 { border-bottom-left-radius: 4px; }
+@mixin bbrr4 { border-bottom-right-radius: 4px; }
+@mixin br10 { border-radius: 10px; }
+@mixin br20 { border-radius: 20px; }
+@mixin brc { border-radius: 50%; }
+/*背景*/
+@mixin bgc-t { background-color: transparent }
+
+/**弹性盒子模型**/
+/*弹性盒子*/
+@mixin dfb {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin dvb {
+    @include dfb;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    @include whp;
+    @include hhp;
+}
+/*子元素在垂直轴上的对齐方式|左右对齐*/
+// 居左对齐
+@mixin fb-jcs { justify-content: flex-start; }
+// 居中对齐
+@mixin fb-jcc { justify-content: center; }
+// 居右对齐
+@mixin fb-jce { justify-content: flex-end; }
+// 分散对齐
+@mixin fb-jcb { justify-content: space-between; }
+// 两端对齐
+@mixin fb-jca { justify-content: space-around; }
+/*子元素在水平轴上的对齐方式|上下对齐*/
+// 居首对齐
+@mixin fb-ais {
+    -webkit-box-align: start;
+       -moz-box-align: start;
+    -webkit-align-items: flex-start;
+            align-items: flex-start;
+}
+// 居中对齐
+@mixin fb-aic {
+    -webkit-box-align: center;
+       -moz-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+// 居尾对齐
+@mixin fb-aie {
+    -webkit-box-align: end;
+       -moz-box-align: end;
+    -webkit-align-items: flex-end;
+            align-items: flex-end;
+}
+/*单个子元素在水平轴上的对齐方式*/
+// 居首对齐
+@mixin fb-ass { align-self: flex-start; }
+// 居中对齐
+@mixin fb-asc { align-self: center; }
+// 居尾对齐
+@mixin fb-ase { align-self: flex-end; }
+// 水平子元素占比
+@mixin fbi-1 {
+    -webkit-box-flex: 1;
+       -moz-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1;
+    width: 0%;
+}
+// 垂直子元素占比
+@mixin fbi-v {
+	-webkit-box-flex: 1;
+	   -moz-box-flex: 1;
+		-webkit-flex: 1;
+				flex: 1;
+	@include whp;
+	height: auto;
+}
+
+/**溢出**/
+@mixin oh { overflow: hidden; }
+@mixin ov { overflow: visible; }
+@mixin oa { overflow: auto; }
+@mixin oxh { overflow-x: hidden; }
+@mixin oyh { overflow-y: hidden; }
+@mixin oxs { overflow-x: scroll; }
+@mixin oys { overflow-y: scroll; }
+
+/**文本**/
+/*水平对齐*/
+@mixin tal { text-align: left; }
+@mixin tac { text-align: center; }
+@mixin tar { text-align: right; }
+/*垂直对齐*/
+@mixin vam { vertical-align: middle; }
+/*文字宽度*/
+@mixin fwb { font-weight: bold; }
+@mixin fwn { font-weight: normal; }
+/*文字样式*/
+@mixin fsn { font-style: normal; }
+/*文字大小*/
+@mixin fs12 { font-size: 12px; }
+@mixin fs14 { font-size: 14px; }
+@mixin fs16 { font-size: 16px; }
+@mixin fs18 { font-size: 18px; }
+@mixin fs20 { font-size: 20px; }
+@mixin fs30 { font-size: 30px; }
+/*行高*/
+@mixin lh20 { line-height: 20px; }
+@mixin lh30 { line-height: 30px; }
+@mixin lh40 { line-height: 40px; }
+@mixin lh48 { line-height: 48px; }
+/*文本装饰*/
+@mixin tdn { text-decoration: none; }
+@mixin tdu { text-decoration: underline; }
+/*光标*/
+@mixin cp { cursor: pointer; }
+
+/**表单**/
+
+/*轮廓*/
+@mixin oln { outline: none; }

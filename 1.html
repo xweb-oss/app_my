@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue-app</title>
+  </head>
+  <style>
+      #wxb{
+          width:100%;
+          height:100%;
+    }
+    .wxb_head{
+        height:47px;
+        width:100%;
+        text-align: center;
+        color:#fff;
+        background: #000;
+        line-height: 47px;
+    }
+    .wxb_body{
+        position: relative;
+        width:100%;
+        height:100vh;
+    }
+    .wxb_body_div{
+        position: absolute;
+        left:50%;
+        top:10%;
+        width:400px;
+        height:500px;
+        border-radius: 30px;
+        background:#123456;
+    }
+    .wxb_form{
+       
+    }
+    .wxb_form div{
+        display: flex;
+        justify-content: space-between;
+        margin:0 25px;
+        margin-top:60px;
+    }
+    .input1{
+        width:280px;
+        height:35px;
+        /* margin-top:100px; */
+        /* margin-left:30px; */
+    }
+    .input2{
+        width:280px;
+        height:35px;
+        /* margin-top:50px; */
+        /* margin-left:30px; */
+    }
+    .btn{
+        width:360px;
+        height:50px;
+        background:blueviolet;
+        margin-left:30px;
+        margin-top:100px;
+        border-radius: 10px;
+
+
+    }
+
+    .wxb_form span{
+        font-size: 20px;
+        color:#fff;
+    }
+
+
+    .img{
+        width:240px;
+        height:360px;
+    }
+  </style>
+  <body>
+    <div id="wxb">
+        <header class="wxb_head">
+            请输入您自己喜欢的内容
+        </header>
+        <div class="wxb_body">
+            <img src="./2.jpg" alt="jakfaksljflajlfa" class="img">
+            <div class="wxb_body_div">
+                <form action="" class="wxb_form">
+                    <div>
+                        <span>用户名: </span>
+                        <input type="text" placeholder="请输入用户名" class="input1">
+                    </div>
+                    <div>
+                        <span>密码: </span>
+                        <input type="password" placeholder="请输入密码"  class="input2">
+                    </div>
+                </form>
+                <button onclick="login()" class="btn">登录</button>
+            </div>
+        </div>
+        <footer class="wxb_footer">
+
+        </footer>
+
+    </div>
+
+  </body>
+  <script>
+    
+  </script>
+</html>

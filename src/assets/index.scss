@@ -1,0 +1,180 @@
+@import "common/animate.min.css";
+@import "common/mint-ui.css";
+@import "common/mobile";
+@import "common/swiper-3.3.1.min.css";
+@import "../assets/iconfont/iconfont.css";
+
+
+body,html,box{
+    width:100%;
+    height:100%
+}
+.home{
+    width:100%;
+    overflow-x: auto;
+    .navHome{
+        width:8.4rem;
+        margin-top:0.83rem;
+        height:50px;
+        display: flex;
+        background:#ccc;
+        a{
+            display: block;
+            height:50px;
+            display: flex;
+
+            .gaoliang{
+                width:1.2rem;
+                font-size:32px;
+                text-align: center;
+            }
+            .gaoliang:hover{
+                color:#fff;
+            }
+            
+        }
+    }
+};
+.bannerHome{
+    width:100%;
+    img{
+        width:100%;
+        height:2.9rem;
+    }
+}
+.aMall{
+    position:fixed;
+    width:100%;
+    height:50px;
+    top:0.8rem;
+    background:#123456;
+    line-height: 50px;
+    display: flex;
+    a{
+        width:50%;
+        display: block;
+      
+        font-size:26px;
+        text-align: center;
+        color:#a2a9b1;
+        
+    }
+    .router-link-exact-active:hover{
+        color:#fff;
+    }
+}
+
+main{
+    margin-top:0.82rem;
+    background:#123456;
+    height:160px;
+    width:100%;
+    display: flex;
+   
+    img{
+        display: block;
+        width:150px;
+        height:150px;
+        margin-top:5px;
+        margin-left:30px;
+    }
+    button{
+        margin-left:50px;
+        border:1px solid #fff;
+        border-radius: 20px;
+        width:120px;
+        height:50px;
+        line-height:50px;
+        text-align: center;
+        background: transparent;
+        color:#fff;
+        margin-top:50px;
+        
+    }
+}
+
+.listBeg{
+    margin-top:130px;
+    width:100%;
+    height:100%;
+    li{
+        display: flex;
+        width:100%;
+        justify-content: flex-start;
+        height:300px;
+        margin-bottom:10px;
+        box-sizing: border-box;
+        a{
+            width:30%;
+            height:300px;
+           
+            display: block;
+        
+            img{
+                height:300px;
+                width:200px;
+            }
+        }
+        .content{
+            margin-left:15px;
+            width:65%;
+            h3{
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size:30px;
+                margin-top:10px;
+                font-weight: 800;
+            }
+            p{
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                margin-top:20px;
+            }
+             button{
+                height:0.5rem;
+                float:right;
+            }
+        }
+    }
+
+}
+// 列表进入详情  
+// slide-left  列表向左滑动  详情从右往左滑动 
+
+@keyframes left-in{
+    from{transform: translateX(100%);opacity: 0;}
+    to{transform: translateX(0%);opacity: 1;}
+}
+@keyframes left-out{  // 列表 
+    from{transform: translateX(0%);opacity: 1;}
+    to{transform: translateX(-100%);opacity:0;}
+}
+.slide-left-enter-active{
+    animation:left-in .9s;
+}
+.slide-left-leave-active{
+    animation:left-out .9s;
+}
+
+
+
+// 详情返回列表
+// slide-right   详情页面 往右滑动  列表从左往右滑动  
+
+@keyframes right-in{  // 列表 
+    from{transform: translateX(-100%);opacity: 0;}
+    to{transform: translateX(0%);opacity: 1;}
+}
+@keyframes right-out{   
+    from{transform: translateX(0%);opacity: 1;}
+    to{transform: translateX(100%);opacity:0;}
+}
+
+.slide-right-enter-active{
+    animation:right-in .9s;  
+}
+.slide-right-leave-active{
+    animation:right-out .9s;
+}

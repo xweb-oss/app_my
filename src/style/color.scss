@@ -1,0 +1,76 @@
+// 主题     统一定义每个模块,字体的颜色
+$theme: #f5f5f5;
+
+// global
+$purple: #8f1566;
+$yellow: #f8e71c;
+$black: #333;
+$white: #f5f5f5;
+$red: rgba(236, 29, 29, 0.952);
+$green: #4caf50;
+$gray: #888;
+$blue: #606cbf;
+$border_color: #e8eaec;
+
+// tab
+$page_tab_bg: linear-gradient(#f95b57, #d41813);
+$page_tab_active: $yellow;
+$page_tab_inactive: $white;
+$page_tab_border: $white;
+
+// login
+$login_input_bg: $white;
+$login_input_text: $black;
+$login_bg: linear-gradient(to bottom right, #E14844, #c65692);
+$login_submitbtn_bg: $green;
+$login_backbtn_color: #606cbf;
+
+// hall
+$hall_lottery_icon_border: $white;
+$hall_lottery_cqssc_bg: linear-gradient(left, rgb(248, 122, 176), rgb(242, 200, 150));
+$hall_lottery_xyft_bg: linear-gradient(left, #f8c681, #f5a374);
+$hall_lottery_bjpk10_bg: linear-gradient(left, #c790f7, #868af5);
+$hall_lottery_ffc_bg: linear-gradient(left, rgb(247, 198, 127), rgb(245, 159, 129));
+$hall_lottery_gxk3_bg: $hall_lottery_xyft_bg;
+
+// chatroom
+$chatroom_tab_bg: $theme;
+$chatroom_tab_border: #ece5db;
+$chatroom_msg_time: #333;
+$chatroom_msg_boxshadow: $gray;
+$chatroom_user_balance: #f03a02;
+$chatroom_user_online: #008000;
+$chatroom_leftmenu_icon: $yellow;
+
+// popup
+$popup_close_icon: #f0c040;
+
+// table
+$table_stripe: #f8f8f9;
+$table_bg: #fff;
+
+// 下注，键盘
+$keyboard_betball_bg: #fbfbfb;
+$keyboard_playname_bg:#e8e8e8;
+$cancel_bet_bg: #b8bbbf;
+$keyboard_sendbox_light: #f0f3f4;
+$keyboard_sendbox_dark: #545358;
+
+//个人中心
+$bank_info_bg: #afdfe4;
+$betdetails_bg: #d3d7d4;
+$betdetails_color: #892f1b;
+$betdetails_p_color: #a1a3a6;
+$betdetails_li_color: #130c0e;
+
+$bank_card: #fffffb;
+$history_bg:#f0f3f4;
+$history_color:#72777b;
+$history_red_color:#7a1723;
+
+$profit_color:#4f5555;
+$profit_color_span:#d3d7d4;
+$profit_border_color:#a1a3a6;
+$profit_bg:#94d6da;
+
+$userinfo_bg:#d3d7d4;
