@@ -58,13 +58,19 @@ export default {
   mixins: [mymixin], // 调用mixin.js中的方法
   data() {
     return {
+      message: 'goodbady',  // 在mixins中也同时存在的变量
+      bar: 'bar',
       startTime: "",
       endTime: "",
       pickerVisible: null
-      // list:[1,2,3,4,5,6,7,8,9,10]
+      // list:[1,2,3,4,5,6,7,8,9,10]   直接使用mixins里面的变量，参数 和方法。
     };
   },
   created() {
+     console.log(this.$data)    
+    //  在值为函数的情况下，建相同的情况下会优先选择组件内部的属性值message: "goodbady"
+    //  =====>   { message: "goodbady" , bar: 'bar', foo: 'abc', .... }
+
     this.cont_left = [
       {
         content: "删除",
@@ -117,9 +123,14 @@ export default {
     );
     // 格式化
     console.log(date.format()); // 2019-07-05T09:39:39+08:00
+
     console.log(date.format("YYYY-MM-DD dddd HH:mm:ss.SSS A")); // 2019-07-05 Friday 09:39:39.957 AM
+    
+    console.log(date.format('YYYY-MM-DD HH:mm:ss'))  // 2019-08-21 13:07:59
+
     // 增加天数 / 年份  返回一个新的对象
     console.log(date.add(7, "day"));
+
     // 时间差 年、月、日
     console.log(dayjs("2019-06-08").diff(dayjs("2017-06-01"), "years")); // 2
   }

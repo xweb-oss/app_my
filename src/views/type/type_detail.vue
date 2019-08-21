@@ -5,8 +5,11 @@
                 <mt-button icon="back">返回</mt-button>
             </router-link>
         </mt-header>
-       <mt-cell v-for="entr in entrList" :key="entr.id" :title="entr.title" is-link :to="{path:'/type_common',query:{tit:entr.title,ads:entr.address}}">
-            <img :src="entr.rc" width="24" height="24" style="float:right">
+        <!-- /type_common -->
+       <mt-cell v-for="entr in entrList" :key="entr.id" :title="entr.title" is-link :to="`${entr.link}`">
+            <!-- <P>{{entr.title}}</P> -->
+            <!-- <img :src="`../../assets/images/${entr.icon}.png`" width="24" height="24" style="float:right">  在vue中使用本地照片必须用require-->
+            <img :src="entr.icon" width="24" height="24" style="float:right">
        </mt-cell>
     </b-scroll>
 </template>
@@ -14,26 +17,38 @@
 import BScroll from 'better-scroll';
 
 import bScroll from "@/components/scroll/scroll.vue";
-import samll1 from '@/assets/images/samll1.png'
+
+
+// 照片而言。不能使用  @/  ???????
+// 注意点
+// 1、在vue的js代码中使用本地图片
+// require('./../assets/images/01.jpg'),
+
+
+
+import testImg from '../../assets/images/samll1.png'
+
+
 
 import { list } from '@/util/testAsync'
-// 照片而言。不能使用  @/
+
+
 const entrList = [
-    {id:"1",title:"演员",rc:samll1,address:"242078437"},
-    {id:"2",title:"认真的雪",rc:'../../assets/images/samll2.png',address:"7356091"},
-    {id:"3",title:"丑八怪",rc:'assets/images/samll3.png',address:"87967607"},
-    {id:"4",title:"你还要我怎样",rc:'assets/images/samll4.png',address:"00575177"},
-    {id:"5",title:"绅士",rc:'assets/images/samll5.png',address:"241838066"},
-    {id:"6",title:"动物世界",rc:'assets/images/samll5.png',address:"241838067"},
-    {id:"7",title:"木偶人",rc:'assets/images/samll5.png',address:"341898666"},
-    {id:"8",title:"天份",rc:samll1,address:"610722309",address:"241838356"},
-    {id:"9",title:"哑巴",rc:'assets/images/samll5.png',address:"591310911"},
-    {id:"10",title:"刚刚好",rc:'assets/images/samll5.png'},
-    {id:"11",title:"暧昧",rc:'assets/images/samll5.png'},
-    {id:"12",title:"我好想在那见过你",rc:samll1},
-    {id:"13",title:"意外",rc:'assets/images/samll5.png'},
-    {id:"14",title:"狐狸",rc:'assets/images/samll5.png'},
-    {id:"15",title:"像风一样",rc:'assets/images/samll5.png'},
+    {id:"1",title:"演员",icon:testImg,address:"242078437",link:'/type_common'},
+    {id:"2",title:"认真的雪",icon:'samll2',address:"7356091",link:'/type_common'},
+    {id:"3",title:"丑八怪",icon:testImg,address:"87967607",link:'/type_common'},
+    {id:"4",title:"你还要我怎样",icon:'samll4',address:"00575177",link:'/type_common'},
+    {id:"5",title:"绅士",icon:'samll5',address:"241838066",link:'/scorll_test'},
+    {id:"6",title:"动物世界",icon:'samll2',address:"241838067",link:'/scorll_img'},
+    {id:"7",title:"木偶人",icon:'samll5',address:"341898666",link:'/scorll_img'},
+    {id:"8",title:"天份",icon:'samll1',address:"610722309",address:"241838356",link:'/scorll_img'},
+    {id:"9",title:"哑巴",icon:'samll3',address:"591310911",link:'/scorll_img'},
+    {id:"10",title:"刚刚好",icon:'logo',link:'/scorll_img'},
+    {id:"11",title:"暧昧",icon:'samll4'},
+    {id:"12",title:"我好想在那见过你",icon:'samll4'},
+    {id:"13",title:"意外",icon:'samll2'},
+    {id:"14",title:"狐狸",icon:'samll5'},
+    {id:"15",title:"像风一样",icon:'samll3'},
 ]
 export default {
     components:{bScroll},

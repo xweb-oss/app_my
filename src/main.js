@@ -21,10 +21,15 @@ Vue.use(vClickOutside);
 
 // 全局定义过滤器
 Vue.filter('capitalize', function (value) {
+  // debugger;
   if (!value) return ''
   value = value.toString()
+  console.log(value.charAt(0))  // h   
+  console.log(value.charAt(0).toUpperCase()) // H
+  console.log(value.slice(1)) // ello  截取第一个，必须要用变量接收  会改变源字符串
   return value.charAt(0).toUpperCase() + value.slice(1)
 })
+
 // 全局自定义指令
 Vue.directive('permission',{
     bind: function (el, binding, vnode) {

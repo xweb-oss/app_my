@@ -11,7 +11,6 @@
 
 <script>
 import BScroll from 'better-scroll';
-
 export default {
   props: {
     /**
@@ -81,7 +80,8 @@ export default {
     },
   },
   mounted() {
-    // 保证在DOM渲染完毕后初始化better-scroll
+    // 保证在DOM渲染完毕后 初始化better-scroll
+    // debugger;
     setTimeout(() => {
       this.initScroll();
     }, 20);

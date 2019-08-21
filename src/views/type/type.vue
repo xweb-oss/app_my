@@ -1,5 +1,5 @@
 <template>
-    <b-scroll>
+    <BScroll>
         <mt-navbar v-model="selected">
             <mt-tab-item :id="index+1" v-for="(item,index) in List" :key="index" icon="">{{item.title}}</mt-tab-item>
         </mt-navbar>
@@ -11,19 +11,22 @@
                 <mt-cell v-for="(n,i) in 10" :key="i" :title="item.cellcontent + n" />
             </mt-tab-container-item>
         </mt-tab-container>
+
         <div>全局定义的过滤器一{{message | capitalize}}</div><br />
-        <div :id="message | capitalize">id等于Hello</div>
-        <p style="color:bule">全局过滤器和局部过滤器如果同名的话，会优先选择局部过滤器，</p>
-        <div>局部过滤器{{result | getDate}}</div>
+        <div :id="message | capitalize">相当于给div添加了一个 id属性 等于Hello</div><br />
+        <p style="color:bule">全局过滤器和局部过滤器如果同名的话，会优先选择局部过滤器，</p><br />
+        <div>局部过滤器{{result | getDate}}</div>&nbsp;
+        <div>-------{{result | secondToDate}}</div>&nbsp;
         <div>过滤器可以串联：{{result | getDate | secondToDate}}</div><br />
+
         <mt-button size="large" type="primary" @click.native="handleClick('/type_detail')">点击进入详情</mt-button>
-    </b-scroll>
+    </BScroll>
 </template>
 <script>
 import {getDate,secondToDate} from '@/util/filter'
-import bScroll from "@/components/scroll/scroll.vue"
+import BScroll from "@/components/scroll/scroll.vue"
 export default {
-    components:{bScroll},
+    components:{BScroll},
     data(){
         return{
             result:18784952000,
