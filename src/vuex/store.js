@@ -7,7 +7,9 @@ import getters from './getters.js'
 Vue.use(Vuex);
 
 const state={
-    themTitle:"house"
+	themTitle:"house",
+	count: 0,
+	newMsg:'hfhhffjhdssksd'
 }
 
 
@@ -17,3 +19,5 @@ export default new Vuex.Store({
 	actions,
 	mutations,
  })
+
+

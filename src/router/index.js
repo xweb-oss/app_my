@@ -68,6 +68,11 @@ const router= new Router({
         path:"/scorll_img",
         component: () => import('@/views/type/scorll_img.vue'),
         name:"scorll_img",
+    },
+    {
+        path:"/mall_echart",
+        component: () => import('@/views/mall/mall_echart.vue'),
+        name:"mall_echart",
     }
 
 ]

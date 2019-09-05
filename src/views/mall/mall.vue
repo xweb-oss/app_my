@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- <p>{{newMsg}}</p> -->
     <input
       id="start"
       type="text"
@@ -48,11 +49,19 @@
       <mt-cell-swipe title="swipe向左可滑动" :left="cont_left"></mt-cell-swipe>
       <mt-cell v-for="(item,index) in list" :key="index">{{ item }}</mt-cell>
     </div>
+
+
+     
+
+    <!-- echarts的测试 -->
+     <mt-button type="primary" size="large" @click.native="handeechart">点击跳转echart</mt-button>
   </div>
 </template>
 <script>
 import { mapMutations } from "vuex";
+
 import { mymixin } from "@/util/mixins";
+
 import dayjs from "dayjs"; // 个轻量的处理时间和日期的 JavaScript 库
 export default {
   mixins: [mymixin], // 调用mixin.js中的方法
@@ -78,8 +87,32 @@ export default {
         handler: () => this.$messagebox("delete")
       }
     ];
+
+    this.changeMsg()
   },
+
   methods: {
+
+
+      // 数组用法 
+      ...mapMutations([
+          'increment'     // mutation中的函数名
+      ]),
+        // 对象用法
+        // ...mapMutations({
+        //   increment : 'increment'
+        // }),
+
+      changeMsg(){
+        // this.$store.commit('increment','wosho')   // 直接在页面用
+        // console.log(this.$store.state.newMsg)
+        this.increment(888888)
+         console.log(this.$store.state.newMsg)   // 通过...mapMutations用  。多可以改变state中的值
+      },
+   
+    
+
+
     loadMore() {
       this.loading = true; // 为true的时候不滑动
       setTimeout(() => {
@@ -89,6 +122,9 @@ export default {
         }
         this.loading = false;
       }, 2500);
+    },
+    handeechart(){
+      this.$router.push('/mall_echart')
     }
   },
   mounted() {
@@ -130,7 +166,6 @@ export default {
 
     // 增加天数 / 年份  返回一个新的对象
     console.log(date.add(7, "day"));
-
     // 时间差 年、月、日
     console.log(dayjs("2019-06-08").diff(dayjs("2017-06-01"), "years")); // 2
   }

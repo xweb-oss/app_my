@@ -27,11 +27,107 @@
 		</mt-radio>
         </div>
         <mt-button type="primary" size="large" @click.native="handelTest">测试toast</mt-button>
+         <div style="position:relative">
+            <svg style="position:absolute;top:32px;left:6px">
+                <!-- 把第一个line当成是一个坐标的起始点期待你坐标为(x1:0,y1:0) 终点为(x2:50,y2:50) -->
+                <line x1="0" y1="0" x2="50" y2="50" style="stroke:rgb(255,0,0);stroke-width:2"/>
+                <!-- <line x1="0" y1="50" x2="50" y2="50" style="stroke:rgb(255,0,0);stroke-width:2"/> -->
+                <!-- <line x1="0" y1="50" x2="50" y2="0" style="stroke:rgb(255,0,0);stroke-width:2"/> -->
+                <!-- <line x1="0" y1="0" x2="50" y2="100" style="stroke:rgb(255,0,0);stroke-width:2"/> -->
+                <line x1="0" y1="50" x2="50" y2="150" style="stroke:rgb(255,0,0);stroke-width:2"/>
+                <line x1="0" y1="250" x2="250" y2="-280" style="stroke:rgb(255,0,0);stroke-width:2"/>
+            </svg>
+            <table>
+                <thead>
+                <tr>
+                    <th>test svg</th>
+                    <th>test svg</th>
+                    <th>test svg</th>
+                    <th>test svg</th>
+                </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td>
+                            <!-- x1 属性在 x 轴定义线条的开始
+                            y1 属性在 y 轴定义线条的开始
+                            x2 属性在 x 轴定义线条的结束
+                            y2 属性在 y 轴定义线条的结束 -->
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                          
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                          
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                          
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>{{count}}</td>
+                    </tr>
+                </tbody>
+            </table>
+         </div>
     </div>
 </template>
 <script>
 import { Toast } from 'mint-ui';
 // import { getList } from "@/api/my/index"
+import { mapActions, mapState } from 'vuex' //注册 action 和 state
 import axios from "axios";
 export default {
     data(){
@@ -59,9 +155,7 @@ export default {
 			}]
         }
     },
-    created(){
-        this.getList();
-    },
+ 
 
     methods:{
         handelTest(){
@@ -82,6 +176,11 @@ export default {
         loadListData(){
 
         },
+
+         //在这里引入 action 里的方法，使用方法和 methods 里的其他方法一样
+        ...mapActions([
+            'incrementStep'
+        ]),
 
         gggg(){
             function loadImageAsync(url) {
@@ -125,11 +224,14 @@ export default {
         console.log(this.$data)  //  ......undefind
     },
     created(){
+          this.incrementStep();   // 初始化 actions中的 incrementStep方法
+
+           this.getList();
+
         console.log(this.$el)  //  ......undefind
         console.log(this.$data)    // dom元素在created的时候就一句渲染成功
 
-
-
+     
         const promise = new Promise(function(resolve, reject) {
         // ... some code
 
@@ -160,6 +262,11 @@ export default {
           console.log(3)
         })
         console.log(4)
+    },
+    computed:{
+        ...mapState([
+            'count'
+        ])
     }
 
 }
@@ -168,6 +275,8 @@ export default {
   .searchWrap {
     margin: 5px 8px;
     background: #fff;
+
+
   }
   .mint-searchbar{
     padding:5px 5px 0 5px;

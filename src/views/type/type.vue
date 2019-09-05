@@ -34,7 +34,7 @@ export default {
             List:[
                 {title:'选择一'},
                 {title:'选择二'},
-                {title:'选择三'},
+                {title:'选择三'},      
             ],
             cellList:[
                 {cellcontent:"选项"},
