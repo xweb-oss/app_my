@@ -11,7 +11,7 @@
             <mt-search v-model="commodityName" cancel-text="取消"  placeholder="搜索" @keyup.enter.native="loadListData"></mt-search>
         </form>
         <iframe name='frameFile' style="display: none;"></iframe>
-        <mt-cell title="选择单选和多选">h
+        <mt-cell title="选择单选和多选">
             <mt-switch v-model="isshowe" @change="turn"></mt-switch>
         </mt-cell>
         <mt-checklist 
@@ -163,7 +163,11 @@ export default {
             axios.post(`/dic/goods/on-off-line`).then(({data})=>{
                 console.log(data)
             })
-            Toast('提示信息');   // 提示信息
+            Toast('我要去slot test页面了');   // 提示信息
+            //  setTimeout(function(){resolve('zhao')},time)  二个参数，一个函数，一个时间
+             setTimeout(()=>{
+                this.$router.push({path:'/my_solt'})
+            },1000)
         },
          // 单选多选切换
         turn(){
@@ -208,7 +212,22 @@ export default {
         },
         check(val){
             console.log(val)
-        }
+        },
+
+
+        Netest(){
+            let aa = { 
+                id:30 
+            }
+            axios.post("https://webserver.cptcsxz.com/webEntry/lottery/addVotesInfo.json?",{
+                headers:{
+                    // 'Content-type': 'application/x-www-form-urlencoded'
+                    'Content-type': 'application/json'
+                }
+            }).then(res=>{
+                    console.log(res)
+                })
+            }
     },
     watch:{
         commodityName:function(newvs,oldvs){
@@ -224,9 +243,13 @@ export default {
         console.log(this.$data)  //  ......undefind
     },
     created(){
-          this.incrementStep();   // 初始化 actions中的 incrementStep方法
 
-           this.getList();
+        this.Netest()
+
+
+        this.incrementStep();   // 初始化 actions中的 incrementStep方法
+
+        this.getList();
 
         console.log(this.$el)  //  ......undefind
         console.log(this.$data)    // dom元素在created的时候就一句渲染成功
@@ -235,11 +258,11 @@ export default {
         const promise = new Promise(function(resolve, reject) {
         // ... some code
 
-        if (1){   /* 异步操作成功 */
-            resolve(value);
-        } else {
-            reject(error);
-        }
+            if (1){   /* 异步操作成功 */
+                resolve('value');
+            } else {
+                reject(error);
+            }
         })
     },
     beforeMount(){

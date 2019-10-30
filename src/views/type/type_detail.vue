@@ -1,31 +1,39 @@
 <template>
-    <b-scroll>
-        <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈" fixed>
-            <router-link to="home/type" slot="left">
-                <mt-button icon="back">返回</mt-button>
-            </router-link>
-        </mt-header>
-        <!-- /type_common -->
-       <mt-cell v-for="entr in entrList" :key="entr.id" :title="entr.title" is-link :to="`${entr.link}`">
-            <!-- <P>{{entr.title}}</P> -->
-            <!-- <img :src="`../../assets/images/${entr.icon}.png`" width="24" height="24" style="float:right">  在vue中使用本地照片必须用require-->
-            <img :src="entr.icon" width="24" height="24" style="float:right">
-       </mt-cell>
-    </b-scroll>
+  <b-scroll>
+    <mt-header
+      title="标题过长会隐藏后面的内容啊哈哈哈哈"
+      fixed
+    >
+      <router-link
+        to="home/type"
+        slot="left"
+      >
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
+    <!-- /type_common -->
+    <mt-cell
+      v-for="entr in entrList"
+      :key="entr.id"
+      :title="entr.title"
+      is-link
+      :to="`${entr.link}`"
+    >
+      <!-- <P>{{entr.title}}</P> -->
+      <!-- <img :src="`../../assets/images/${entr.icon}.png`" width="24" height="24" style="float:right">  在vue中使用本地照片必须用require-->
+      <img
+        :src="entr.icon"
+        width="24"
+        height="24"
+        style="float:right"
+      >
+    </mt-cell>
+  </b-scroll>
 </template>
 <script>
 import BScroll from 'better-scroll';
 
 import bScroll from "@/components/scroll/scroll.vue";
-
-
-// 照片而言。不能使用  @/  ???????
-// 注意点
-// 1、在vue的js代码中使用本地图片
-// require('./../assets/images/01.jpg'),
-
-
-
 import testImg from '../../assets/images/samll1.png'
 
 
@@ -41,7 +49,7 @@ const entrList = [
     {id:"5",title:"绅士",icon:'samll5',address:"241838066",link:'/scorll_test'},
     {id:"6",title:"动物世界",icon:'samll2',address:"241838067",link:'/scorll_img'},
     {id:"7",title:"木偶人",icon:'samll5',address:"341898666",link:'/scorll_img'},
-    {id:"8",title:"天份",icon:'samll1',address:"610722309",address:"241838356",link:'/scorll_img'},
+    {id:"8",title:"天份",icon:'samll1',address:"610722309",address:"241838356",link:'/better-scroll'},
     {id:"9",title:"哑巴",icon:'samll3',address:"591310911",link:'/scorll_img'},
     {id:"10",title:"刚刚好",icon:'logo',link:'/scorll_img'},
     {id:"11",title:"暧昧",icon:'samll4'},

@@ -1,11 +1,17 @@
 <template>
-    <!--定义外层-->
-    <div class="wrapper" ref="wrapper">
-        <!--定义需要滚动的内容区域-->
-        <ul class="content">
-            <li v-for="item in items" :style="{background:item.bg,height:height}">{{item.text}}</li>
-        </ul>
-    </div>
+  <!--定义外层-->
+  <div
+    class="wrapper"
+    ref="wrapper"
+  >
+    <!--定义需要滚动的内容区域-->
+    <ul class="content">
+      <li
+        v-for="item in items"
+        :style="{background:item.bg,height:height}"
+      >{{item.text}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -64,20 +70,19 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
-    .wrapper{
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #222;
-        .content{
-            li{
-                list-style:none;
-                width:100%;
-                text-align:center;
-                color:#fff;
-            }
-        }
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #222;
+  .content {
+    li {
+      list-style: none;
+      width: 100%;
+      text-align: center;
+      color: #fff;
     }
+  }
+}
 </style>
