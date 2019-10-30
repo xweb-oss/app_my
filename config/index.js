@@ -11,48 +11,29 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/cusc/rbacadmin/**': {
-          target: 'http://172.30.0.59:40005/cusc/rbacadmin',
-          pathRewrite: {
-              '^/cusc/rbacadmin': ''
-          },
-          secure: false
-      },
-      '/datatransfer/**': {
-          target: 'http://172.23.131.19:40017',
-          pathRewrite: {
-              '^/datatransfer': ''
-          },
-          secure: false
-      },
-      '/base/**': {
-          target: 'http://172.30.0.59:41007',
-          pathRewrite: {
-              '^/base': ''
-          },
-          secure: false
-      },
       '/dic': {
         target: 'http://192.168.43.88:8080', //代理接口
         changeOrigin: true,
         pathRewrite: {
-        '^/dic': '' //代理的路径
+          '^/dic': '' //代理的路径
         }
       },
       '/gateway/amsp/**': {
-          //  target: 'http://172.30.0.60:41007',  //dist
-          // target: 'http://172.30.0.59:41007',
-          // target: 'http://172.23.131.138:41007', // 愉快
-          // target: 'http://172.23.131.131:41007', // 罗海波
-          // target: 'http://172.23.131.142:41018', // 叶中
-          // target: 'http://172.23.131.140:41007',
-          // target: 'http://172.23.131.19:41007',
-          pathRewrite: {
-              '^/gateway/amsp': ''
-          },
-          secure: false
+        // target: 'http://172.23.131.19:41007',
+        pathRewrite: {
+          '^/gateway/amsp': ''
+        },
+        secure: false
+      },
+      '/test': {
+        target: 'https://kjcenter-server.cptuat.net/kjEntry',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/test': '' //代理的路径
+        }
+
       }
-  },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -62,7 +43,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

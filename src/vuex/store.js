@@ -9,7 +9,9 @@ Vue.use(Vuex);
 const state={
 	themTitle:"house",
 	count: 0,
-	newMsg:'hfhhffjhdssksd'
+	newMsg:'hfhhffjhdssksd',
+	againInfo:[]
+
 }
 
 

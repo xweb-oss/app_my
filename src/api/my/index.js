@@ -1,12 +1,21 @@
-import {amspUsercontrol} from '@/config/env';   // 路径前缀
-import request from '@/router/axios'    // axios  , vuex 
-
+// import { amspUsercontrol } from '@/config/env';   // 路径前缀
+import request from '@/router/axios.js'    // axios  , vuex 
 // one methods
-export function getlist(query){
+export function getlist(query) {
     return request({
-        url:`${amspUsercontrol}/invoce/invoiceQuery`,
-        method:'post',
-        data:query
+        url: `${amspUsercontrol}/invoce/invoiceQuery`,
+        method: 'post',
+        data: query
+    })
+}
+
+
+
+export const gettestdate = (data) => {
+    return request({
+        url: `/test/sg/getNewSgInfoById.json`,
+        method: 'post',
+        data
     })
 }
 
@@ -48,7 +57,7 @@ export function getlist(query){
 //       responseType: 'blob' // 表明返回服务器返回的数据类型
 //     })
 //   };
-  
+
 
 /**
  * 机构上架过的产品id集合
@@ -59,4 +68,3 @@ export function getlist(query){
 //       method: 'get',
 //     })
 //   };
-  
