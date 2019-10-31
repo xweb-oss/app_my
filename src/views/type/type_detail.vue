@@ -28,19 +28,19 @@
         style="float:right"
       >
     </mt-cell>
+    <div>{{bigKuang}}</div>
+    <div v-text="msg"></div>
+    <div v-html="newMsg"></div>
+
+    <span v-pre>{{message}}</span>
+    <span>{{message}}</span>
   </b-scroll>
 </template>
 <script>
 import BScroll from 'better-scroll';
-
 import bScroll from "@/components/scroll/scroll.vue";
 import testImg from '../../assets/images/samll1.png'
-
-
-
 import { list } from '@/util/testAsync'
-
-
 const entrList = [
     {id:"1",title:"演员",icon:testImg,address:"242078437",link:'/type_common'},
     {id:"2",title:"认真的雪",icon:'samll2',address:"7356091",link:'/type_common'},
@@ -53,16 +53,21 @@ const entrList = [
     {id:"9",title:"哑巴",icon:'samll3',address:"591310911",link:'/scorll_img'},
     {id:"10",title:"刚刚好",icon:'logo',link:'/scorll_img'},
     {id:"11",title:"暧昧",icon:'samll4'},
-    {id:"12",title:"我好想在那见过你",icon:'samll4'},
-    {id:"13",title:"意外",icon:'samll2'},
-    {id:"14",title:"狐狸",icon:'samll5'},
-    {id:"15",title:"像风一样",icon:'samll3'},
+    // {id:"12",title:"我好想在那见过你",icon:'samll4'},
+    // {id:"13",title:"意外",icon:'samll2'},
+    // {id:"14",title:"狐狸",icon:'samll5'},
+    // {id:"15",title:"像风一样",icon:'samll3'},
 ]
 export default {
     components:{bScroll},
     data(){
         return{
-            entrList:entrList
+            entrList:entrList,
+            bigKuang:'我是双大括号',
+            msg:'<h2>jgsjf</h2>',
+            newMsg:'<h2>jgsjf</h2>',
+            message:'跳过不编译'
+
         }
     },
     methods:{
